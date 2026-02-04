@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thankyou!</title>
+    <style>
+        body {
+            background: #0b132b;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            .rain {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            }
+
+            .heart {
+                position: absolute;
+                bottom: 100%;
+                font-size: 20px;
+                animation: fall linear infinite;
+                opacity: 0.8;
+            }
+
+            @keyframes fall {
+            to {
+                transform: translateY(110vh);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="rain"></div>
+    <img src="./images-removebg-preview.png" height="300px">
+
+    <script>
+        const rain = document.querySelector('.rain');
+
+    for (let i = 0; i < 100; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '❤️';
+
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (1 + Math.random() * 2) + 's';
+        heart.style.animationDelay = Math.random() * 2 + 's';
+        heart.style.fontSize = (16 + Math.random() * 24) + 'px';
+
+        rain.appendChild(heart);
+    } 
+    </script>
+</body>
+</html>
